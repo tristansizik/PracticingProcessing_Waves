@@ -4,7 +4,8 @@
   "description": "Practicing Processing with Waves",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "vercel build": "index.js"
   },
   "author": "Tristan Sizik",
   "license": "ISC",
