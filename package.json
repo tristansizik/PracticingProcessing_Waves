@@ -1,0 +1,14 @@
+{
+  "name": "wavespractice",
+  "version": "1.0.0",
+  "description": "Practicing Processing with Waves",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tristan Sizik",
+  "license": "ISC",
+  "dependencies": {
+    "p5": "^1.5.0"
+  }
+}
