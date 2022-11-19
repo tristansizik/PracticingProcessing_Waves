@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const url = require("url");
 
 const hostname = '0.0.0.0';
 const port = 3000;
@@ -11,14 +12,16 @@ server.listen(port);
 console.log('Server running on',hostname,':',port);
 
 function handleRequest(req, res){
-	let pathname = req.url;
+	//let pathname = req.url;
 
-	if(pathname == '/') {
-		pathname = '/index.html';
-	}
+//	if(pathname == '/') {
+//		pathname = '/index.html';
+//	}
+	var q = url.parse(req.url, true);
 
-	let ext = path.extname(pathname);
-
+	//let ext = path.extname(pathname);
+	var path = "." + q.pathname;
+	
 	const typeExt = {
 		'.html': 'text/html',
 		'.js':   'text/javascript',
@@ -26,9 +29,10 @@ function handleRequest(req, res){
 	};
 
 	let contentType = typeExt[ext] || 'text/plain';
-	console.log("filename: ",__dirname + pathname);
-
-	fs.readFile(__dirname + pathname,
+	
+	//__dirname + pathname for local
+	//path for online
+	fs.readFile(path,
 		function (err, data) {
 			if (err) {
 				res.writeHead(500);
