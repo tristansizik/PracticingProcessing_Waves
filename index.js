@@ -26,6 +26,7 @@ function handleRequest(req, res){
 	};
 
 	let contentType = typeExt[ext] || 'text/plain';
+	console.log("filename: ",__dirname + pathname);
 
 	fs.readFile(__dirname + pathname,
 		function (err, data) {
